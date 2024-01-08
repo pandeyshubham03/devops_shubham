@@ -2,7 +2,9 @@
 
 To lists all pods in "default" namespace: 
 
-```clientset.CoreV1().Pods("default").List(context.Background(), metav1.ListOptions)```
+``` sh
+pods, err := clientset.CoreV1().Pods("default").List(context.Background(), metav1.ListOptions)
+```
 
 To list all deployments in "default" namespace:
 ``` sh
