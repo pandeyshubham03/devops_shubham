@@ -20,7 +20,7 @@ func main() {
 	if err != nil {
 		// handle error
 		fmt.Printf("error %s building config from flags\n", err.Error())
-		config, err := rest.InClusterConfig()
+		_, err := rest.InClusterConfig()
 		if err != nil {
 			fmt.Printf("error %s, getting inclusterconfig", err.Error())
 		}
