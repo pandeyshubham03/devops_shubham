@@ -21,8 +21,9 @@ func main() {
 	if err != nil {
 		// handle error
 	}
-
-	clientset.CoreV1().Pods("default").List(context.Background(), metav1.ListOptions) // lists all pods from a specific namespace : the pods can be accessed using CoreV1
+	ctx := context.Background()
+	pod, err := clientset.CoreV1().Pods("default").List(ctx, metav1.ListOptions)
+	// lists all pods from a specific namespace : the pods can be accessed using CoreV1
 
 	// fmt.Println(config)
 	// fmt.Println(clientset)
@@ -31,4 +32,12 @@ func main() {
 	for _, pod := range pod.Items {
 		fmt.Printf("%s", pod.Name)
 	}
+
+	fmt.Println("Deployments from default namespace")
+	deployments, err := clientset.AppsV1().Deployments("default").List(ctx, metav1.ListOptions{})
+	// lists all deployments from a the default namespace
+	for _, d := range deployments.Items {
+		fmt.Printf("%s", d.Name)
+	}
+
 }
