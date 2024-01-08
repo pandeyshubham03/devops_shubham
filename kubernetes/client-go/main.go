@@ -24,6 +24,11 @@ func main() {
 
 	clientset.CoreV1().Pods("default").List(context.Background(), metav1.ListOptions) // lists all pods from a specific namespace : the pods can be accessed using CoreV1
 
-	fmt.Println(config)
-	fmt.Println(clientset)
+	// fmt.Println(config)
+	// fmt.Println(clientset)
+
+	fmt.Println("Pods from default namespace: ")
+	for _, pod := range pod.Items {
+		fmt.Printf("%s", pod.Name)
+	}
 }

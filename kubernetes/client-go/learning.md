@@ -1,4 +1,4 @@
-# Learing Kubernetes client-go
+# Learning Kubernetes client-go
 
 To lists all pods in "default" namespace: 
 
