@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 )
 
 // {"page":"words","input":"word1","words":["word1"]}
@@ -59,5 +60,5 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("JSON Parsed\nPage: %s\nWords: %v\n", words.Page, words.Words)
+	fmt.Printf("JSON Parsed\nPage: %s\nWords: %v\n", words.Page, strings.Join(words.Words, ","))
 }
